@@ -1,0 +1,21 @@
+.button {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  padding: 15px;
+  max-width: 300px;
+  transition: ease 0.5s;
+}
+
+.button-light {
+  color: #117fe3;
+  background: #f6f8fb;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 550;
+  @media (any-hover: hover) {
+    &:hover {
+      background: #d7e7ff;
+    }
+  }
+}

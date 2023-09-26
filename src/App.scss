@@ -1,0 +1,40 @@
+@import "./scss/vars.scss";
+@import "./scss/fonts";
+@import "./scss/nullstyle";
+
+[class*="__container"] {
+  max-width: 1650px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+
+body {
+  font-family: var(--main-font);
+}
+
+h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 112.5%;
+}
+
+h2 {
+  color: var(--color-soft-black);
+  font-size: clamp(26px, 5vw, 33px);
+  font-weight: 700;
+  line-height: 93.939%;
+}
+
+h3 {
+  color: var(--color-soft-black);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 93.939%;
+}
+
+h4 {
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 93.939%;
+}
