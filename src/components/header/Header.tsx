@@ -1,60 +1,23 @@
 import React, { FC, PropsWithChildren } from "react";
-import LightButton from "../UI/Buttons/LightButton";
+import LightButton from "../UI/buttons/LightButton";
 
 import "./Header.scss";
+import Logo from "../UI/logo/Logo";
+import BlueButton from "../UI/buttons/BlueButton";
+import SearchInput from "../searchInput/SearchForm";
+import HeaderCatalogToggler from "./HeaderCatalogToggler";
+import { Link } from "react-router-dom";
+import HeaderActions from "./HeaderActions";
+import HeaderNav from "./HeaderNav";
 
 interface IHeaderProps extends PropsWithChildren {}
 
 const Header: FC<IHeaderProps> = () => {
   return (
     <header className="header">
-      <div className="header__container">
-        <div className="header-top">
-          <nav className="header-nav">
-            <ul className="header-list">
-              <li className="header-list__item">
-                <a className="header-list__link" href="">
-                  О компании
-                </a>
-              </li>
-
-              <li className="header-list__item">
-                <a className="header-list__link" href="">
-                  Оплата
-                </a>
-              </li>
-              <li className="header-list__item">
-                <a className="header-list__link" href="">
-                  Доставка
-                </a>
-              </li>
-              <li className="header-list__item">
-                <a className="header-list__link" href="">
-                  Возврат
-                </a>
-              </li>
-              <li className="header-list__item">
-                <a className="header-list__link" href="">
-                  Отзывы
-                </a>
-              </li>
-              <li className="header-list__item">
-                <a className="header-list__link" href="">
-                  Вопрос-ответ
-                </a>
-              </li>
-              <li className="header-list__item">
-                <a className="header-list__link" href="">
-                  Новости
-                </a>
-              </li>
-              <li className="header-list__item">
-                <a className="header-list__link" href="">
-                  Контакты
-                </a>
-              </li>
-            </ul>
-          </nav>
+      <div className="header-top">
+        <div className="header-top__container">
+          {window.innerWidth > 1400 ? <HeaderNav /> : false}
           <div className="header-order-call">
             <div className="header-order-call__period">Ежедневно, с 8:00 до 18:00</div>
             <a className="header-order-call__phone" href="tel:8 800 444 00 65">
@@ -62,6 +25,14 @@ const Header: FC<IHeaderProps> = () => {
             </a>
             <LightButton className="header-order-call__button">Заказать звонок</LightButton>
           </div>
+        </div>
+      </div>
+      <div className="header-main">
+        <div className="header-main__container">
+          <Logo className="header-logo" />
+          <HeaderCatalogToggler />
+          <SearchInput placeholder="Найти среди 50000 товаров. Например: Дрель Bosch" className="header-search-form" />
+          <HeaderActions />
         </div>
       </div>
     </header>
