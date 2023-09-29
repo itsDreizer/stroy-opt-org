@@ -17,24 +17,32 @@ interface IHeaderActionsProps {}
 const HeaderActions: FC<IHeaderActionsProps> = () => {
   return (
     <div className="header-actions">
-      <Link className="header-actions-item" to={"/"}>
-        <div className="header-actions-item__block-img">
-          <img className="header-actions-item__img" src={gift} alt="Акции" />
-        </div>
-        <div className="header-actions-item__text">Все акции</div>
-      </Link>
+      {window.innerWidth > 700 ? (
+        <Link className="header-actions-item" to={"/"}>
+          <div className="header-actions-item__block-img">
+            <img className="header-actions-item__img" src={gift} alt="Акции" />
+          </div>
+          <div className="header-actions-item__text">Все акции</div>
+        </Link>
+      ) : (
+        false
+      )}
       <Link className="header-actions-item" to={"/"}>
         <div className="header-actions-item__block-img">
           <img className="header-actions-item__img" src={person} alt="Акции" />
         </div>
         <div className="header-actions-item__text">Войти</div>
       </Link>
-      <Link className="header-actions-item" to={"/"}>
-        <div className="header-actions-item__block-img">
-          <img className="header-actions-item__img" src={stats} alt="Акции" />
-        </div>
-        <div className="header-actions-item__text">Сравнение</div>
-      </Link>
+      {window.innerWidth > 430 ? (
+        <Link className="header-actions-item" to={"/"}>
+          <div className="header-actions-item__block-img">
+            <img className="header-actions-item__img" src={stats} alt="Акции" />
+          </div>
+          <div className="header-actions-item__text">Сравнение</div>
+        </Link>
+      ) : (
+        false
+      )}
       <Link data-count="3" className="header-actions-item" to={"/"}>
         <div className="header-actions-item__block-img">
           <img className="header-actions-item__img" src={heart} alt="Акции" />
