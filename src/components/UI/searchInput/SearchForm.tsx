@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import { DefaultProps } from "../../types";
+import { DefaultProps } from "../../../types";
 
 // @ts-ignore
-import loop from "../../images/icons/loop.svg";
+import loop from "../../../images/icons/loop.svg";
 
 import "./SearchForm.scss";
 

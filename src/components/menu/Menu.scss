@@ -2,9 +2,33 @@
   position: absolute;
   top: 0;
   left: 0;
-  // left: -100%;
-  // &.active {
-  //   left: 0;
-  // }
-  // transition: ease 0.5s;
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  overflow: auto;
+}
+
+.menu__container {
+  padding: 0px 25px;
+}
+.menu-header {
+  padding: 25px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu__title {
+  color: #2e3032;
+  font-size: 19px;
+  font-weight: 700;
+}
+.menu__close {
+  min-width: 25px;
+  height: 25px;
+  background: url(../../images/icons/blueCross.svg) center no-repeat;
+  border-radius: 4px;
+  background-color: #f2f6fc;
+}
+.menu-body {
 }

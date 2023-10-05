@@ -5,18 +5,23 @@ interface IStatesSlice {
 }
 
 const initialState = {
-  menu: false,
+  headerMenu: false,
 };
 
 const statesStateSlice = createSlice({
   name: "states",
   reducers: {
-    setMenu(state, action: PayloadAction<boolean>) {
-      state.menu = action.payload;
+    setHeaderMenu(state, action: PayloadAction<boolean>) {
+      if (action.payload) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "visible";
+      }
+      state.headerMenu = action.payload;
     },
   },
   initialState,
 });
 
 export const stateReducer = statesStateSlice.reducer;
-export const { setMenu } = statesStateSlice.actions;
+export const { setHeaderMenu } = statesStateSlice.actions;
