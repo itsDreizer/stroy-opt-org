@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useState } from "react";
+import React, { FC, PropsWithChildren, useRef, useState } from "react";
 import LightButton from "../UI/buttons/LightButton";
 
 import Logo from "../UI/logo/Logo";
@@ -15,7 +15,7 @@ interface IHeaderProps extends PropsWithChildren {}
 
 const Header: FC<IHeaderProps> = () => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-
+  const nodeRef = useRef(null);
   window.onresize = () => {
     setWindowWidth(window.innerWidth);
   };

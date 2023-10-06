@@ -1,13 +1,27 @@
 .menu {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   z-index: 50;
   width: 100vw;
   height: 100vh;
   background-color: white;
+  transition: 0.7s ease;
   overflow: auto;
 }
+
+.menu-enter-active {
+  left: 0;
+}
+
+.menu-enter-done {
+  left: 0;
+}
+
+.menu-exit-active {
+  left: -100%;
+}
+
 
 .menu__container {
   padding: 0px 25px;

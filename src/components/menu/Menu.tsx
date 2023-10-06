@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { createPortal } from "react-dom";
 
 import "./Menu.scss";
 import { useAppDispatch } from "../../redux/hooks";
 import { DefaultProps } from "../../types";
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
-
+import { CSSTransition } from "react-transition-group";
 const menu = document.querySelector("#menu-portal");
 
 interface IMenuProps extends DefaultProps {
@@ -19,6 +19,10 @@ const Menu: FC<IMenuProps> = (props) => {
 
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    document.body.style.overflow = isMenuVisible ? "hidden" : "visible";
+  }, [isMenuVisible]);
+
   const classes = {
     rootClass: className ? className : "",
     headerClass: className ? `${className}-header` : "",
@@ -28,20 +32,22 @@ const Menu: FC<IMenuProps> = (props) => {
   };
 
   const JSX = (
-    <div className={`menu ${classes.rootClass}`}>
-      <div className="menu__container">
-        <header className={`menu-header ${classes.headerClass}`}>
-          <div className={`menu__title ${classes.titleClass}`}>{title}</div>
-          <button
-            onClick={() => dispatch(closeMenuAction(!isMenuVisible))}
-            className={`menu__close ${classes.closeButtonClass}`}></button>
-        </header>
+    <CSSTransition mountOnEnter unmountOnExit in={isMenuVisible} timeout={700} classNames={"menu"}>
+      <div className={`menu ${classes.rootClass}`}>
+        <div className="menu__container">
+          <header className={`menu-header ${classes.headerClass}`}>
+            <div className={`menu__title ${classes.titleClass}`}>{title}</div>
+            <button
+              onClick={() => dispatch(closeMenuAction(!isMenuVisible))}
+              className={`menu__close ${classes.closeButtonClass}`}></button>
+          </header>
+        </div>
+        <div className={`menu-body ${classes.bodyClass}`}>{children}</div>
       </div>
-      <div className={`menu-body ${classes.bodyClass}`}>{children}</div>
-    </div>
+    </CSSTransition>
   );
 
-  if (menu && isMenuVisible) {
+  if (menu) {
     return createPortal(JSX, menu);
   } else {
     return <div style={{ display: "none" }}></div>;

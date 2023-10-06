@@ -2,26 +2,26 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface IStatesSlice {
   menu: boolean;
+  catalogMenu: boolean;
 }
 
 const initialState = {
   headerMenu: false,
+  catalogMenu: false,
 };
 
 const statesStateSlice = createSlice({
+  initialState,
   name: "states",
   reducers: {
     setHeaderMenu(state, action: PayloadAction<boolean>) {
-      if (action.payload) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "visible";
-      }
       state.headerMenu = action.payload;
     },
+    setCatalogMenu(state, action: PayloadAction<boolean>) {
+      state.catalogMenu = action.payload;
+    },
   },
-  initialState,
 });
 
 export const stateReducer = statesStateSlice.reducer;
-export const { setHeaderMenu } = statesStateSlice.actions;
+export const { setHeaderMenu, setCatalogMenu } = statesStateSlice.actions;
