@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 import "./Menu.scss";
@@ -19,6 +19,8 @@ const Menu: FC<IMenuProps> = (props) => {
 
   const dispatch = useAppDispatch();
 
+  const ref = useRef(null);
+
   useEffect(() => {
     document.body.style.overflow = isMenuVisible ? "hidden" : "visible";
   }, [isMenuVisible]);
@@ -32,8 +34,8 @@ const Menu: FC<IMenuProps> = (props) => {
   };
 
   const JSX = (
-    <CSSTransition mountOnEnter unmountOnExit in={isMenuVisible} timeout={700} classNames={"menu"}>
-      <div className={`menu ${classes.rootClass}`}>
+    <CSSTransition nodeRef={ref} mountOnEnter unmountOnExit in={isMenuVisible} timeout={700} classNames={"menu"}>
+      <div ref={ref} className={`menu ${classes.rootClass}`}>
         <div className="menu__container">
           <header className={`menu-header ${classes.headerClass}`}>
             <div className={`menu__title ${classes.titleClass}`}>{title}</div>
