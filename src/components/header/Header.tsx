@@ -10,12 +10,12 @@ import HeaderMenuToggler from "./HeaderMenuToggler";
 import HeaderNav from "./HeaderNav";
 import Menu from "../menu/Menu";
 import HeaderMenu from "./HeaderMenu";
+import Catalog from "../catalog/Catalog";
 
 interface IHeaderProps extends PropsWithChildren {}
 
 const Header: FC<IHeaderProps> = () => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const nodeRef = useRef(null);
   window.onresize = () => {
     setWindowWidth(window.innerWidth);
   };
@@ -66,6 +66,7 @@ const Header: FC<IHeaderProps> = () => {
           )}
         </div>
       </div>
+      <Catalog />
     </header>
   );
 };

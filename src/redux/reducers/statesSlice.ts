@@ -1,13 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface IStatesSlice {
-  menu: boolean;
-  catalogMenu: boolean;
+  headerMenu: boolean;
 }
 
-const initialState = {
+const initialState: IStatesSlice = {
   headerMenu: false,
-  catalogMenu: false,
 };
 
 const statesStateSlice = createSlice({
@@ -17,11 +15,8 @@ const statesStateSlice = createSlice({
     setHeaderMenu(state, action: PayloadAction<boolean>) {
       state.headerMenu = action.payload;
     },
-    setCatalogMenu(state, action: PayloadAction<boolean>) {
-      state.catalogMenu = action.payload;
-    },
   },
 });
 
 export const stateReducer = statesStateSlice.reducer;
-export const { setHeaderMenu, setCatalogMenu } = statesStateSlice.actions;
+export const { setHeaderMenu } = statesStateSlice.actions;

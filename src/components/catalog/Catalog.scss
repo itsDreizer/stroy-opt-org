@@ -1,0 +1,53 @@
+.catalog {
+  position: absolute;
+  transition: 0.7s;
+  opacity: 0;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #f9fafb;
+}
+.catalog-enter-active {
+  opacity: 1;
+}
+
+.catalog-enter-done {
+  opacity: 1;
+}
+
+.catalog__container {
+  padding: 25px 15px;
+}
+
+.catalog-body {
+  display: flex;
+  gap: 30px;
+}
+
+.catalog-tabs {
+  flex: 0 1 350px;
+}
+
+.catalog-sub-tabs-wrapper {
+  flex: 0 1 400px;
+}
+
+.catalog-sub-tabs {
+  transition: 0.7s;
+  opacity: 0;
+}
+
+.catalog-sub-tabs-enter-active {
+  opacity: 1;
+}
+
+.catalog-sub-tabs-enter-done {
+  opacity: 1;
+}
+
+.catalog-sub-tabs-exit-active {
+  display: none;
+}
+
+.catalog-sub-tabs-exit-done {
+}

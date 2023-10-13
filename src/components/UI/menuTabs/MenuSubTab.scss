@@ -1,0 +1,21 @@
+.menu-sub-tab {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 15px 25px;
+  background-color: white;
+  line-height: 150%;
+  font-size: 15px;
+  font-weight: 600;
+  transition: ease 0.7s;
+  &::after {
+    content: "";
+    min-width: 7px;
+    height: 7px;
+    border-top: 1px solid #919aa3;
+    border-right: 1px solid #919aa3;
+    rotate: 45deg;
+  }
+}

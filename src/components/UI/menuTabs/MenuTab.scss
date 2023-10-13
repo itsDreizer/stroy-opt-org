@@ -1,0 +1,30 @@
+.menu-tab {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  line-height: 150%;
+  padding: 15px 25px;
+  border-bottom: 1px solid #ebf2f6;
+  text-transform: uppercase;
+  background-color: white;
+  font-weight: 600;
+  font-size: 13px;
+  transition: ease 0.7s;
+  &.active {
+    background-color: var(--color-signature-blue);
+    color: white;
+    &::after {
+      border-color: white;
+    }
+  }
+  &::after {
+    content: "";
+    min-width: 7px;
+    height: 7px;
+    border-top: 1px solid #919aa3;
+    border-right: 1px solid #919aa3;
+    rotate: 45deg;
+  }
+}
