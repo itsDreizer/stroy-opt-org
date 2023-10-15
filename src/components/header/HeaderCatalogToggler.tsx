@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC, useRef, useState } from "react";
 import { DefaultProps } from "../../types";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { setCatalogVisible, setCurrentTab } from "../../redux/reducers/catalogSlice";
+import { setCatalogVisible, setCurrentTab, setCurrentSubTab } from "../../redux/reducers/catalogSlice";
 
 interface IHeaderCatalogTogglerProps extends DefaultProps {}
 
@@ -15,11 +15,11 @@ const HeaderCatalogToggler = () => {
   return (
     <button
       onClick={(e) => {
-        if (isCatalogVisible) {
-          setTimeout(() => {
-            dispatch(setCurrentTab(""));
-          }, 700);
+        if (!isCatalogVisible) {
+          dispatch(setCurrentTab(""));
+          dispatch(setCurrentSubTab(""));
         }
+
         dispatch(setCatalogVisible(!isCatalogVisible));
       }}
       className={`header-catalog-toggler ${isCatalogVisible ? "active" : ""}`}>

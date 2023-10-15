@@ -4,19 +4,19 @@ import { DefaultProps } from "../../../types";
 import "./MenuTab.scss";
 
 export interface IMenuTab extends DefaultProps {
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLLIElement>) => void;
   tabID: string;
   currentTab: string;
 }
 
 const MenuTab: React.FC<IMenuTab> = ({ children, className, onClick, tabID, currentTab }) => {
   return (
-    <div
+    <li
       data-tab={tabID}
       onClick={onClick}
       className={`menu-tab ${className ? className : ""} ${currentTab === tabID ? "active" : ""}`}>
       {children}
-    </div>
+    </li>
   );
 };
 

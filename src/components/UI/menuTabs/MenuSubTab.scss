@@ -18,4 +18,11 @@
     border-right: 1px solid #919aa3;
     rotate: 45deg;
   }
+  &.active {
+    color: var(--color-signature-blue);
+    &::after {
+      content: "";
+      border-color: var(--color-signature-blue);
+    }
+  }
 }

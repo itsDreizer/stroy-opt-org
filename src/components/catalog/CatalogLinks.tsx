@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
+import { DefaultProps } from "../../types";
 
-const CatalogLinks = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+interface ICatalogLinks extends DefaultProps {}
 
-export default CatalogLinks
+const CatalogLinks: React.FC<ICatalogLinks> = ({ children }) => {
+  return <ul className="catalog-links">{children}</ul>;
+};
+
+export default CatalogLinks;

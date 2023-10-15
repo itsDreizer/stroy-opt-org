@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, PropsWithRef } from "react";
 
 export interface IButtonProps extends PropsWithChildren {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -7,7 +7,6 @@ export interface IButtonProps extends PropsWithChildren {
 
 export interface DefaultProps extends PropsWithChildren {
   className?: string;
-  ref?: React.MutableRefObject<null>;
 }
 
 export interface IRoute {

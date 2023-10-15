@@ -1,20 +1,19 @@
-import React, { FC, PropsWithChildren, useRef, useState } from "react";
+import React, { PropsWithChildren, useState } from "react";
 import LightButton from "../UI/buttons/LightButton";
 
 import Logo from "../UI/logo/Logo";
 import SearchInput from "../UI/searchInput/SearchForm";
-import "./Header.scss";
+import Catalog from "../catalog/Catalog";
 import HeaderActions from "./HeaderActions";
 import HeaderCatalogToggler from "./HeaderCatalogToggler";
+import HeaderMenu from "./HeaderMenu";
 import HeaderMenuToggler from "./HeaderMenuToggler";
 import HeaderNav from "./HeaderNav";
-import Menu from "../menu/Menu";
-import HeaderMenu from "./HeaderMenu";
-import Catalog from "../catalog/Catalog";
 
+import "./Header.scss";
 interface IHeaderProps extends PropsWithChildren {}
 
-const Header: FC<IHeaderProps> = () => {
+const Header: React.FC<IHeaderProps> = () => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   window.onresize = () => {
     setWindowWidth(window.innerWidth);
