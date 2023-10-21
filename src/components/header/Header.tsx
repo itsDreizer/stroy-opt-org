@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useState } from "react";
+import React, { PropsWithChildren } from "react";
 import LightButton from "../UI/buttons/LightButton";
 
 import Logo from "../UI/logo/Logo";
@@ -10,14 +10,15 @@ import HeaderMenu from "./HeaderMenu";
 import HeaderMenuToggler from "./HeaderMenuToggler";
 import HeaderNav from "./HeaderNav";
 
+import { useAppSelector } from "../../redux/hooks";
 import "./Header.scss";
 interface IHeaderProps extends PropsWithChildren {}
 
 const Header: React.FC<IHeaderProps> = () => {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  window.onresize = () => {
-    setWindowWidth(window.innerWidth);
-  };
+  // const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const windowWidth = useAppSelector((state) => {
+    return state.states.windowWidth;
+  });
 
   return (
     <header className="header">

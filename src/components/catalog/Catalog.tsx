@@ -8,10 +8,9 @@ import MenuTab from "../UI/menuTabs/MenuTab";
 import CatalogSubTabs from "./CatalogSubTabs";
 import CatalogTabs from "./CatalogTabs";
 
-import "./Catalog.scss";
-import { Link } from "react-router-dom";
 import CatalogLinks from "./CatalogLinks";
 import CatalogLink from "./CatalogLink";
+import "./Catalog.scss";
 
 const Catalog: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -28,13 +27,14 @@ const Catalog: React.FC = () => {
   });
 
   const catalogRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
 
-  const setTab = (e: React.MouseEvent<HTMLLIElement>) => {
+  const setSubTabs = (e: React.MouseEvent<HTMLLIElement>) => {
     dispatch(setCurrentTab(e.currentTarget.dataset.tab ? e.currentTarget.dataset.tab : ""));
     dispatch(setCurrentSubTab(""));
   };
 
-  const setSubTab = (e: React.MouseEvent<HTMLLIElement>) => {
+  const setLinks = (e: React.MouseEvent<HTMLLIElement>) => {
     dispatch(setCurrentSubTab(e.currentTarget.dataset.subTab ? e.currentTarget.dataset.subTab : ""));
   };
 
@@ -48,11 +48,11 @@ const Catalog: React.FC = () => {
       timeout={700}>
       <div ref={catalogRef} className="catalog">
         <div className="catalog__container">
-          <div className="catalog-body">
+          <div ref={bodyRef} className="catalog-body">
             <CatalogTabs>
               {tabs.map((tab) => {
                 return (
-                  <MenuTab key={tab.title} onClick={setTab} tabID={tab.tabID} currentTab={currentTab}>
+                  <MenuTab key={tab.title} onClick={setSubTabs} tabID={tab.tabID} currentTab={currentTab}>
                     {tab.title}
                   </MenuTab>
                 );
@@ -72,7 +72,7 @@ const Catalog: React.FC = () => {
                         return (
                           <MenuSubTab
                             currentTab={currentSubTab}
-                            onClick={setSubTab}
+                            onClick={setLinks}
                             key={tab.title}
                             tabID={tab.subTabID}>
                             {tab.title}
@@ -86,12 +86,16 @@ const Catalog: React.FC = () => {
                 );
               })}
             </TransitionGroup>
-            <TransitionGroup className={"catalog-links-wrapper"}>
+            <TransitionGroup
+              style={{
+                maxHeight: window.innerWidth > 1499 ? bodyRef.current?.scrollHeight : "600px",
+              }}
+              className={"catalog-links-wrapper"}>
               {links.map((linksBlock) => {
                 const nodeRef = createRef<HTMLUListElement>();
                 return currentSubTab === linksBlock.linksID ? (
-                  <CSSTransition classNames={"catalog-links"} nodeRef={nodeRef} key={linksBlock.linksID} timeout={700}>
-                    <CatalogLinks>
+                  <CSSTransition nodeRef={nodeRef} key={linksBlock.linksID} timeout={700} classNames={"catalog-links"}>
+                    <CatalogLinks ref={nodeRef}>
                       {linksBlock.children?.map((link) => {
                         return (
                           <CatalogLink to={link.to} key={link.title + link.to}>
