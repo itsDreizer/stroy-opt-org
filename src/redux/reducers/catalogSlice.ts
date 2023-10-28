@@ -4,8 +4,8 @@ import { IMenuTab } from "../../components/UI/menuTabs/MenuTab";
 
 interface ICatalogSlice {
   isMenuVisible: boolean;
-  currentTab: string;
-  currentSubTab: string;
+  currentTab: { id: string; value: string };
+  currentSubTab: { id: string; value: string };
   tabs: {
     title?: string;
     tabID: string;
@@ -22,8 +22,8 @@ interface ICatalogSlice {
 
 const initialState: ICatalogSlice = {
   isMenuVisible: false,
-  currentTab: "",
-  currentSubTab: "",
+  currentTab: { id: "", value: "" },
+  currentSubTab: { id: "", value: "" },
   tabs: [
     {
       title: `Водо-газоснабжение, отопление, вентиляция`,
@@ -137,10 +137,10 @@ const catalogSlice = createSlice({
     setCatalogVisible(state, action: PayloadAction<boolean>) {
       state.isMenuVisible = action.payload;
     },
-    setCurrentTab(state, action: PayloadAction<string>) {
+    setCurrentTab(state, action: PayloadAction<{ id: string; value: string }>) {
       state.currentTab = action.payload;
     },
-    setCurrentSubTab(state, action: PayloadAction<string>) {
+    setCurrentSubTab(state, action: PayloadAction<{ id: string; value: string }>) {
       state.currentSubTab = action.payload;
     },
   },

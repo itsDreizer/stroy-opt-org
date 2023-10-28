@@ -7,6 +7,7 @@ export interface IButtonProps extends PropsWithChildren {
 
 export interface DefaultProps extends PropsWithChildren {
   className?: string;
+  style?: React.CSSProperties | undefined;
 }
 
 export interface IRoute {

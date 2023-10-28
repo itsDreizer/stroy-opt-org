@@ -8,10 +8,10 @@ interface ICatalogSubTabs extends DefaultProps {
 }
 
 const CatalogSubTabs = React.forwardRef<HTMLUListElement, ICatalogSubTabs>((props, ref) => {
-  const { children } = props;
+  const { children, className } = props;
 
   return (
-    <ul ref={ref} className="catalog-sub-tabs">
+    <ul ref={ref} className={`catalog-sub-tabs ${className ? className : ""}`}>
       {children}
     </ul>
   );

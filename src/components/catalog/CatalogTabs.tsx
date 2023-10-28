@@ -6,9 +6,9 @@ import "./CatalogTabs.scss";
 interface ICatalogTabs extends DefaultProps {}
 
 const CatalogTabs = React.forwardRef<HTMLUListElement, ICatalogTabs>((props, ref) => {
-  const { children } = props;
+  const { children, className } = props;
   return (
-    <ul ref={ref} className="catalog-tabs">
+    <ul ref={ref} className={`catalog-tabs ${className ? className : ""}`}>
       {children}
     </ul>
   );

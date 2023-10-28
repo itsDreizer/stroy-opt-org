@@ -12,10 +12,10 @@ import HeaderNav from "./HeaderNav";
 
 import { useAppSelector } from "../../redux/hooks";
 import "./Header.scss";
+import MobileCatalog from "../catalog/MobileCatalog";
 interface IHeaderProps extends PropsWithChildren {}
 
 const Header: React.FC<IHeaderProps> = () => {
-  // const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const windowWidth = useAppSelector((state) => {
     return state.states.windowWidth;
   });
@@ -66,7 +66,7 @@ const Header: React.FC<IHeaderProps> = () => {
           )}
         </div>
       </div>
-      <Catalog />
+      {windowWidth > 999 ? <Catalog /> : <MobileCatalog />}
     </header>
   );
 };

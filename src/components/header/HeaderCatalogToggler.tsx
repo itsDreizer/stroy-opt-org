@@ -15,11 +15,6 @@ const HeaderCatalogToggler = () => {
   return (
     <button
       onClick={(e) => {
-        if (!isCatalogVisible) {
-          dispatch(setCurrentTab(""));
-          dispatch(setCurrentSubTab(""));
-        }
-
         dispatch(setCatalogVisible(!isCatalogVisible));
       }}
       className={`header-catalog-toggler ${isCatalogVisible ? "active" : ""}`}>

@@ -41,3 +41,15 @@ h4 {
 
 #menu-portal {
 }
+
+.arrow-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  &::before {
+    content: "";
+    width: 20px;
+    height: 9px;
+    background: url(./images/icons/arrow-back.svg) center / cover no-repeat;
+  }
+}
