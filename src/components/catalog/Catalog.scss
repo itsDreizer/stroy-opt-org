@@ -32,6 +32,9 @@
 
 .catalog-tabs {
   flex: 0 1 350px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
 }
 
 .catalog-sub-tabs-wrapper {
@@ -41,6 +44,8 @@
 .catalog-sub-tabs {
   transition: 0.7s;
   opacity: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .catalog-sub-tabs-enter-active {
@@ -100,4 +105,9 @@
 }
 
 .catalog-links__link {
+  @media (any-hover: hover) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

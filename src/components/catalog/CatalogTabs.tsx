@@ -1,8 +1,6 @@
 import React from "react";
 import { DefaultProps } from "../../types";
 
-import "./CatalogTabs.scss";
-
 interface ICatalogTabs extends DefaultProps {}
 
 const CatalogTabs = React.forwardRef<HTMLUListElement, ICatalogTabs>((props, ref) => {

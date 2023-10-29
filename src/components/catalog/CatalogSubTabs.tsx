@@ -1,8 +1,6 @@
 import React from "react";
 import { DefaultProps } from "../../types";
 
-import "./CatalogSubTabs.scss";
-
 interface ICatalogSubTabs extends DefaultProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
