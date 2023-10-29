@@ -10,15 +10,19 @@ import HeaderMenu from "./HeaderMenu";
 import HeaderMenuToggler from "./HeaderMenuToggler";
 import HeaderNav from "./HeaderNav";
 
-import { useAppSelector } from "../../redux/hooks";
-import "./Header.scss";
+import { setIsCallModalVisible } from "../../redux/reducers/statesSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import MobileCatalog from "../catalog/MobileCatalog";
+import "./Header.scss";
+
 interface IHeaderProps extends PropsWithChildren {}
 
 const Header: React.FC<IHeaderProps> = () => {
-  const windowWidth = useAppSelector((state) => {
-    return state.states.windowWidth;
+  const { windowWidth, isCallModalVisible } = useAppSelector((state) => {
+    return state.states;
   });
+
+  const dispatch = useAppDispatch();
 
   return (
     <header className="header">
@@ -33,7 +37,13 @@ const Header: React.FC<IHeaderProps> = () => {
               <a className="header-order-call__phone" href="tel:8 800 444 00 65">
                 8 800 444 00 65
               </a>
-              <LightButton className="header-order-call__button">Заказать звонок</LightButton>
+              <LightButton
+                onClick={(e) => {
+                  dispatch(setIsCallModalVisible(true));
+                }}
+                className="header-order-call__button">
+                Заказать звонок
+              </LightButton>
             </div>
           ) : (
             false

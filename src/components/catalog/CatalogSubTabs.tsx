@@ -7,7 +7,7 @@ interface ICatalogSubTabs extends DefaultProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const CatalogSubTabs = React.forwardRef<HTMLUListElement, ICatalogSubTabs>((props, ref) => {
+const CatalogSubTabs = React.forwardRef<HTMLUListElement | null, ICatalogSubTabs>((props, ref) => {
   const { children, className } = props;
 
   return (
