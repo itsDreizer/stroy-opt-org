@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from "react";
+import React from "react";
 
 //@ts-ignore
 import gift from "../../images/icons/gift.svg";
@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 interface IHeaderActionsProps {}
 
-const HeaderActions: FC<IHeaderActionsProps> = () => {
+const HeaderActions: React.FC<IHeaderActionsProps> = () => {
   return (
     <div className="header-actions">
       {window.innerWidth > 700 ? (

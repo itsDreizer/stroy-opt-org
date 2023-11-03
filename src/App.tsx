@@ -13,6 +13,8 @@ function App() {
       dispatch(setWindowWidth(window.innerWidth));
     };
   }, []);
+
+  
   return (
     <BrowserRouter>
       <AppRouter />

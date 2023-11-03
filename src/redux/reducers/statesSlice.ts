@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface IStatesSlice {
-  headerMenu: boolean;
+  isHeaderMenuVisible: boolean;
   windowWidth: number;
   isCallModalVisible: boolean;
 }
 
 const initialState: IStatesSlice = {
-  headerMenu: false,
+  isHeaderMenuVisible: false,
   windowWidth: window.innerWidth,
   isCallModalVisible: false,
 };
@@ -16,8 +16,8 @@ const statesStateSlice = createSlice({
   initialState,
   name: "states",
   reducers: {
-    setHeaderMenu(state, action: PayloadAction<boolean>) {
-      state.headerMenu = action.payload;
+    setIsHeaderMenuVisible(state, action: PayloadAction<boolean>) {
+      state.isHeaderMenuVisible = action.payload;
     },
     setWindowWidth(state, action: PayloadAction<number>) {
       state.windowWidth = action.payload;
@@ -29,4 +29,4 @@ const statesStateSlice = createSlice({
 });
 
 export const stateReducer = statesStateSlice.reducer;
-export const { setHeaderMenu, setWindowWidth, setIsCallModalVisible } = statesStateSlice.actions;
+export const { setIsHeaderMenuVisible, setWindowWidth, setIsCallModalVisible } = statesStateSlice.actions;

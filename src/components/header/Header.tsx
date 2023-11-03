@@ -18,7 +18,7 @@ import "./Header.scss";
 interface IHeaderProps extends PropsWithChildren {}
 
 const Header: React.FC<IHeaderProps> = () => {
-  const { windowWidth, isCallModalVisible } = useAppSelector((state) => {
+  const { windowWidth } = useAppSelector((state) => {
     return state.states;
   });
 

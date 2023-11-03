@@ -1,10 +1,9 @@
-import React, { FC } from "react";
-import Menu from "../menu/Menu";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { setHeaderMenu } from "../../redux/reducers/statesSlice";
+import React from "react";
 import { Link } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { setIsCallModalVisible, setIsHeaderMenuVisible } from "../../redux/reducers/statesSlice";
 import LightButton from "../UI/buttons/LightButton";
-import { CSSTransition } from "react-transition-group";
+import Menu from "../menu/Menu";
 
 import "./HeaderMenu.scss";
 
@@ -14,13 +13,15 @@ import gift from "../../images/icons/gift.svg";
 //@ts-ignore
 import stats from "../../images/icons/stats.svg";
 
-const HeaderMenu: FC = () => {
+const HeaderMenu: React.FC = () => {
+  const dispatch = useAppDispatch();
+
   const isMenuVisible = useAppSelector((state) => {
-    return state.states.headerMenu;
+    return state.states.isHeaderMenuVisible;
   });
 
   return (
-    <Menu isMenuVisible={isMenuVisible} closeMenuAction={setHeaderMenu} title="Меню" className="header-menu">
+    <Menu isMenuVisible={isMenuVisible} closeMenuAction={setIsHeaderMenuVisible} title="Меню" className="header-menu">
       <nav className="header-menu-nav">
         <ul className="header-menu-list">
           <li className="header-menu-list__item">
@@ -82,7 +83,12 @@ const HeaderMenu: FC = () => {
           <a className="header-order-call__phone header-menu-order-call__phone" href="tel:8 800 444 00 65">
             8 800 444 00 65
           </a>
-          <LightButton className="header-order-call__button header-menu-order-call__button">
+          <LightButton
+            onClick={(e) => {
+              // dispatch(setIsHeaderMenuVisible(false));
+              dispatch(setIsCallModalVisible(true));
+            }}
+            className="header-order-call__button header-menu-order-call__button">
             Заказать звонок
           </LightButton>
         </div>

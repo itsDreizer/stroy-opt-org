@@ -3,7 +3,7 @@ import { DefaultProps } from "../../../types";
 
 import "./MenuTab.scss";
 
-export interface IMenuTab extends DefaultProps {
+ interface IMenuTab extends DefaultProps {
   onClick?: (e: React.MouseEvent<HTMLLIElement>) => void;
   tabID: string;
   currentTab: string;

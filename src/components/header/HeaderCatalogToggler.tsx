@@ -1,11 +1,11 @@
-import React, { FC, useRef, useState } from "react";
-import { DefaultProps } from "../../types";
+import React from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { setCatalogVisible, setCurrentTab, setCurrentSubTab } from "../../redux/reducers/catalogSlice";
+import { setCatalogVisible } from "../../redux/reducers/catalogSlice";
+import { DefaultProps } from "../../types";
 
 interface IHeaderCatalogTogglerProps extends DefaultProps {}
 
-const HeaderCatalogToggler = () => {
+const HeaderCatalogToggler: React.FC<IHeaderCatalogTogglerProps> = () => {
   const isCatalogVisible = useAppSelector((state) => {
     return state.catalog.isMenuVisible;
   });

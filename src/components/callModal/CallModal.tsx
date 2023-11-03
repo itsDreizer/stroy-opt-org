@@ -4,6 +4,7 @@ import Modal from "../UI/modal/Modal";
 import { useAppSelector } from "../../redux/hooks";
 
 import { setIsCallModalVisible } from "../../redux/reducers/statesSlice";
+import ModalTitle from "../UI/modal/ModalTitle";
 
 interface ICallModalProps extends DefaultProps {}
 
@@ -13,8 +14,12 @@ const CallModal: React.FC = () => {
   });
 
   return (
-    <Modal isModalVisible={isCallModalVisible} setModalVisible={setIsCallModalVisible}>
-      123
+    <Modal
+      isAbleToClose={true}
+      className="call-modal"
+      isModalVisible={isCallModalVisible}
+      setModalVisible={setIsCallModalVisible}>
+      <ModalTitle className="call-modal-body__title">Заказать обратный звонок</ModalTitle>
     </Modal>
   );
 };

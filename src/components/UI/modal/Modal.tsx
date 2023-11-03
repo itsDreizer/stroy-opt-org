@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { DefaultProps } from "../../../types";
 
 import { createPortal } from "react-dom";
@@ -13,11 +13,12 @@ const modalPortal = document.querySelector("#modal-portal");
 interface IModalProps extends DefaultProps {
   isModalVisible: boolean;
   setModalVisible: ActionCreatorWithPayload<boolean>;
+  isAbleToClose?: boolean;
 }
 
 const Modal: React.FC<IModalProps> = (props) => {
   const dispatch = useAppDispatch();
-  const { children, className, isModalVisible, setModalVisible } = props;
+  const { children, className, isModalVisible, setModalVisible, isAbleToClose } = props;
   const modalRef = useRef<HTMLDivElement>(null);
 
   const classes = {
@@ -31,7 +32,9 @@ const Modal: React.FC<IModalProps> = (props) => {
       <div ref={modalRef} className={`modal ${classes.rootClass}`}>
         <div
           onClick={(e) => {
-            dispatch(setModalVisible(false));
+            if (isAbleToClose) {
+              dispatch(setModalVisible(false));
+            }
           }}
           className={`modal-overlay ${classes.overlayClass}`}>
           <div className="modal-overlay__close-button"></div>

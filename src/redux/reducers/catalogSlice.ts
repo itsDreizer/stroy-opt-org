@@ -1,6 +1,4 @@
-import { createRef } from "react";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IMenuTab } from "../../components/UI/menuTabs/MenuTab";
 
 interface ICatalogSlice {
   isMenuVisible: boolean;

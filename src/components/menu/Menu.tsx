@@ -1,12 +1,11 @@
-import React, { FC, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { DefaultProps } from "../../types";
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { CSSTransition } from "react-transition-group";
+import { useAppDispatch } from "../../redux/hooks";
+import { DefaultProps } from "../../types";
 import "./Menu.scss";
-import { setCurrentSubTab, setCurrentTab } from "../../redux/reducers/catalogSlice";
 const menu = document.querySelector("#menu-portal");
 
 interface IMenuProps extends DefaultProps {
@@ -24,7 +23,7 @@ interface IMenuProps extends DefaultProps {
   onExiting?: () => void;
 }
 
-const Menu: FC<IMenuProps> = (props) => {
+const Menu: React.FC<IMenuProps> = (props) => {
   const {
     children,
     title,
@@ -41,10 +40,6 @@ const Menu: FC<IMenuProps> = (props) => {
   const dispatch = useAppDispatch();
 
   const ref = useRef(null);
-
-  useEffect(() => {
-    document.body.style.overflow = isMenuVisible ? "hidden" : "visible";
-  }, [isMenuVisible]);
 
   const classes = {
     rootClass: className ? className : "",
