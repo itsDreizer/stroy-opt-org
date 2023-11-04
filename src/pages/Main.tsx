@@ -6,10 +6,13 @@ import { useAppSelector } from "../redux/hooks";
 interface IMainProps extends PropsWithChildren {}
 
 const Main: React.FC<IMainProps> = () => {
-  const [{ isHeaderMenuVisible, isCallModalVisible, windowWidth }, { isMenuVisible: isCatalogVisible }] =
-    useAppSelector((state) => {
-      return [state.states, state.catalog];
-    });
+  const { isHeaderMenuVisible, isCallModalVisible, windowWidth } = useAppSelector((state) => {
+    return state.states;
+  });
+
+  const { isMenuVisible: isCatalogVisible } = useAppSelector((state) => {
+    return state.catalog;
+  });
 
   useEffect(() => {
     const condition = isCallModalVisible || isHeaderMenuVisible || (isCatalogVisible && windowWidth < 1000);
