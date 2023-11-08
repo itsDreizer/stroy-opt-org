@@ -3,7 +3,7 @@ import { useAppSelector } from "../../redux/hooks";
 import { DefaultProps } from "../../types";
 import Modal from "../UI/modal/Modal";
 
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 import { setIsCallModalVisible } from "../../redux/reducers/statesSlice";
 import Input from "../UI/inputs/Input";
@@ -23,7 +23,7 @@ const CallModal: React.FC<ICallModalProps> = () => {
 
   const { register, handleSubmit, formState } = useForm<IFormData>();
 
-  const onSubmit = (data: any) => {
+  const onSubmit: SubmitHandler<IFormData> = (data) => {
     console.log(data);
   };
 
@@ -37,7 +37,13 @@ const CallModal: React.FC<ICallModalProps> = () => {
       setModalVisible={setIsCallModalVisible}>
       <ModalTitle className="call-modal-body__title">Заказать обратный звонок</ModalTitle>
       <form noValidate onSubmit={handleSubmit(onSubmit)} className="call-form">
-        <Input autoComplete="off" className="call-form__input" placeholder="Как к вам обращаться?" type="text" />
+        <Input
+          {...register("name", { required: `Заполните обязательные поля!` })}
+          autoComplete="off"
+          className="call-form__input"
+          placeholder="Как к вам обращаться?"
+          type="text"
+        />
         <BlueButton className="call-form__button">Перезвоните мне</BlueButton>
       </form>
     </Modal>
