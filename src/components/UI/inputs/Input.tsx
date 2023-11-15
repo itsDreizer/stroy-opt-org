@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./Input.scss";
-import { UseFormRegister } from "react-hook-form";
 
 interface IInputProps {
   type: string;
@@ -10,6 +9,7 @@ interface IInputProps {
   className?: string;
   isRequired?: boolean;
   labelText?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input = React.forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
