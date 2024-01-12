@@ -2,6 +2,7 @@ import React, { PropsWithChildren, useEffect, useRef } from "react";
 import CallModal from "../components/callModal/CallModal";
 import Header from "../components/header/Header";
 import { useAppSelector } from "../redux/hooks";
+import IntroSection from "../components/sections/introSection/IntroSection";
 
 interface IMainProps extends PropsWithChildren {}
 
@@ -24,6 +25,7 @@ const Main: React.FC<IMainProps> = () => {
     <div className="page-main">
       <CallModal />
       <Header />
+      <IntroSection />
     </div>
   );
 };

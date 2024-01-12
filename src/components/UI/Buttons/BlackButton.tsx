@@ -5,12 +5,12 @@ import { IButtonProps } from "../../../types";
 
 interface IBlueButtonProps extends IButtonProps {}
 
-const BlueButton: FC<IBlueButtonProps> = ({ children, onClick, className }) => {
+const BlackButton: FC<IBlueButtonProps> = ({ children, onClick, className }) => {
   return (
-    <button onClick={onClick} className={`button button--blue ${className ? className : ""}`}>
+    <button onClick={onClick} className={`button button--black ${className ? className : ""}`}>
       {children}
     </button>
   );
 };
 
-export default BlueButton;
+export default BlackButton;
