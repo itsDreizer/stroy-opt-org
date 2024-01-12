@@ -57,3 +57,23 @@ h4 {
 .req-star {
   color: red;
 }
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.hidden-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.checkbox-label__text {
+  color: #696d70;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px; /* 161.538% */
+}
