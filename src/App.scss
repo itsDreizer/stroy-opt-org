@@ -1,6 +1,6 @@
-@import "./scss/vars.scss";
-@import "./scss/fonts";
-@import "./scss/nullstyle";
+@import "./commons/vars.scss";
+@import "./commons/fonts";
+@import "./commons/nullstyle";
 
 [class*="__container"] {
   max-width: 1650px;
