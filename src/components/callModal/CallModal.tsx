@@ -12,12 +12,14 @@ import BlueButton from "../UI/buttons/BlueButton";
 
 import "./CallModal.scss";
 import { useIMask } from "react-imask";
+import CheckBox from "../UI/inputs/Checkbox";
 
 interface ICallModalProps extends DefaultProps {}
 
 interface IFormData {
   name: string;
   phone: string;
+  checkBox: boolean;
 }
 
 const CallModal: React.FC<ICallModalProps> = () => {
@@ -25,8 +27,6 @@ const CallModal: React.FC<ICallModalProps> = () => {
   const { isCallModalVisible } = useAppSelector((state) => {
     return state.states;
   });
-
-  const { ref: phoneMaskRef } = useIMask(phoneInputMask);
 
   const { register, handleSubmit, formState } = useForm<IFormData>();
 
@@ -70,7 +70,11 @@ const CallModal: React.FC<ICallModalProps> = () => {
           labelText="Номер телефона"
           isRequired={true}
         />
-
+        <CheckBox
+          {...register("checkBox", { required: "Поставьте все обязятельные флажки!" })}
+          classNamesPrefix="call-modal">
+          Согласен с обработкой персональных данных в соответствии с политикой конфиденциальности
+        </CheckBox>
         <BlueButton className="call-form__button">Перезвоните мне</BlueButton>
       </form>
     </Modal>

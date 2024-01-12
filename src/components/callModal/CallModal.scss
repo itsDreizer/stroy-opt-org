@@ -1,6 +1,14 @@
 .call-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   margin-top: 25px;
+}
+
+.call-form__button {
+  max-width: 100%;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 25px 15px;
+  font-weight: 700;
 }
