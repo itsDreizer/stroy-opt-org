@@ -1,0 +1,16 @@
+.custom-swiper-pagination {
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet {
+  min-width: 17px;
+  height: 17px;
+  background-color: transparent;
+  border: 3px solid white;
+  opacity: 1;
+  margin: 0px 6px !important;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet-active {
+  border: 3px solid var(--color-signature-blue);
+  opacity: 1;
+}

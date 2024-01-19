@@ -6,6 +6,7 @@
   left: 0;
   width: 100%;
   background: #f9fafb;
+  z-index: 10000;
 }
 .catalog-enter-active {
   opacity: 1;
@@ -99,12 +100,12 @@
   display: none;
 }
 .catalog-links__item {
-  color: #26292d;
   font-size: 16px;
   line-height: 156%;
 }
 
 .catalog-links__link {
+  color: #26292d;
   @media (any-hover: hover) {
     &:hover {
       text-decoration: underline;

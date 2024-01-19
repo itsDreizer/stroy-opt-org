@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import LightButton from "../UI/buttons/LightButton";
 
 import Logo from "../UI/logo/Logo";
 import SearchInput from "../UI/searchInput/SearchForm";
@@ -14,6 +13,7 @@ import { setIsCallModalVisible } from "../../redux/reducers/statesSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import MobileCatalog from "../catalog/MobileCatalog";
 import "./Header.scss";
+import Button from "../UI/buttons/Button";
 
 interface IHeaderProps extends PropsWithChildren {}
 
@@ -37,13 +37,14 @@ const Header: React.FC<IHeaderProps> = () => {
               <a className="header-order-call__phone" href="tel:8 800 444 00 65">
                 8 800 444 00 65
               </a>
-              <LightButton
+              <Button
+                color="light"
                 onClick={(e) => {
                   dispatch(setIsCallModalVisible(true));
                 }}
                 className="header-order-call__button">
                 Заказать звонок
-              </LightButton>
+              </Button>
             </div>
           ) : (
             false

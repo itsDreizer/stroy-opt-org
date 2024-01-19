@@ -10,9 +10,11 @@
 
 body {
   font-family: var(--main-font);
+  color: var(--color-soft-black);
 }
 
 h1 {
+  color: var(--color-soft-black);
   font-size: clamp(30px, 5vw, 48px);
   font-weight: 700;
   line-height: 112.5%;

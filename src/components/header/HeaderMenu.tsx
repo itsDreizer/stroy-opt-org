@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { setIsCallModalVisible, setIsHeaderMenuVisible } from "../../redux/reducers/statesSlice";
-import LightButton from "../UI/buttons/LightButton";
 import Menu from "../menu/Menu";
 
 import "./HeaderMenu.scss";
@@ -12,6 +11,7 @@ import gift from "../../images/icons/gift.svg";
 
 //@ts-ignore
 import stats from "../../images/icons/stats.svg";
+import Button from "../UI/buttons/Button";
 
 const HeaderMenu: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -83,14 +83,15 @@ const HeaderMenu: React.FC = () => {
           <a className="header-order-call__phone header-menu-order-call__phone" href="tel:8 800 444 00 65">
             8 800 444 00 65
           </a>
-          <LightButton
+          <Button
+            color="light"
             onClick={(e) => {
               // dispatch(setIsHeaderMenuVisible(false));
               dispatch(setIsCallModalVisible(true));
             }}
             className="header-order-call__button header-menu-order-call__button">
             Заказать звонок
-          </LightButton>
+          </Button>
         </div>
       </div>
     </Menu>

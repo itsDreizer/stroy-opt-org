@@ -1,0 +1,35 @@
+.navigation-button {
+  width: 60px;
+  min-height: 60px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: var(--color-signature-blue);
+      .navigation-button__arrow {
+        border-color: white;
+      }
+    }
+  }
+  transition: ease 0.5s;
+}
+.navigation-button__arrow {
+  width: 12px;
+  min-height: 12px;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  transition: ease 0.5s;
+}
+
+.navigation-button__arrow--left {
+  rotate: 45deg;
+  translate: 2px 0;
+}
+
+.navigation-button__arrow--right {
+  rotate: -135deg;
+  translate: -2px 0;
+}

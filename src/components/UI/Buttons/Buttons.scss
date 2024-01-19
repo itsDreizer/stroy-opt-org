@@ -6,12 +6,13 @@
   max-width: 300px;
   transition: ease 0.5s;
   text-align: center;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .button--light {
   color: #117fe3;
   background: #f6f8fb;
-  font-size: 15px;
   font-weight: 550;
   @media (any-hover: hover) {
     &:hover {
@@ -23,7 +24,6 @@
 .button--blue {
   color: #fff;
   background: var(--color-signature-blue);
-  font-size: 15px;
   font-weight: 500;
 }
 

@@ -1,8 +1,11 @@
 import { PropsWithChildren, PropsWithRef } from "react";
 
 export interface IButtonProps extends PropsWithChildren {
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
   className?: string;
+  isLink?: boolean;
+  href?: string;
+  color: string;
 }
 
 export interface DefaultProps extends PropsWithChildren {
