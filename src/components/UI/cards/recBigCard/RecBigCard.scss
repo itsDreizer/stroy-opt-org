@@ -1,0 +1,40 @@
+.recommendations-big-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 45px 35px;
+  border-radius: 8px;
+  overflow: hidden;
+  gap: 10px;
+  flex: 0 0 390px;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    padding: 18px 15px;
+  }
+}
+.recommendations-big-card__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.recommendations-big-card__text {
+  font-size: 22px;
+  font-weight: 600;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+  max-width: 215px;
+}
+.recommendations-big-card__discount {
+  background: rgb(1, 17, 32);
+  border-radius: 6px;
+  color: white;
+  padding: 10px;
+}

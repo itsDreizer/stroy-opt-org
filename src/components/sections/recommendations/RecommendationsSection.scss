@@ -6,8 +6,23 @@
   display: flex;
   gap: 20px;
   overflow-x: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }
 .recommendations-small-card {
   cursor: pointer;
   flex: 0 0 185px;
+}
+
+.recommendations-big-cards {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }
