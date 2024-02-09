@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { DefaultProps } from "../../../types";
 
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import "./Modal.scss";
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
+import { useAppDispatch } from "../../../redux/hooks";
+import "./Modal.scss";
 
 const modalPortal = document.querySelector("#modal-portal");
 

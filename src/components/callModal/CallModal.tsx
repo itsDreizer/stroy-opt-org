@@ -11,8 +11,8 @@ import ModalTitle from "../UI/modal/ModalTitle";
 
 import { useIMask } from "react-imask";
 import CheckBox from "../UI/inputs/Checkbox";
-import "./CallModal.scss";
 import Button from "../UI/buttons/Button";
+import "./CallModal.scss";
 
 interface ICallModalProps extends DefaultProps {}
 

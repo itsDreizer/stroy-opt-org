@@ -1,0 +1,27 @@
+.grey-card {
+  padding: 30px;
+  border-radius: 15px;
+  background: #f3f4f5;
+  max-width: 185px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+}
+.grey-card__block-img {
+  flex: 0 1 105px;
+  display: flex;
+  align-items: center;
+}
+.grey-card__img {
+  object-fit: cover;
+}
+.grey-card__text {
+  // margin-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}

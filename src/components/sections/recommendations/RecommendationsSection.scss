@@ -1,0 +1,13 @@
+.recommendations__container {
+  padding: 55px 15px 90px 15px;
+}
+
+.recommendations-small-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+.recommendations-small-card {
+  cursor: pointer;
+  flex: 0 0 185px;
+}
