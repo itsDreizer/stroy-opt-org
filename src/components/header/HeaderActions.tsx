@@ -1,14 +1,9 @@
 import React from "react";
 
-//@ts-ignore
 import gift from "../../images/icons/gift.svg";
-//@ts-ignore
 import person from "../../images/icons/personInFrame.svg";
-//@ts-ignore
 import stats from "../../images/icons/stats.svg";
-//@ts-ignore
 import heart from "../../images/icons/heart.svg";
-//@ts-ignore
 import basket from "../../images/icons/basket.svg";
 import { Link } from "react-router-dom";
 

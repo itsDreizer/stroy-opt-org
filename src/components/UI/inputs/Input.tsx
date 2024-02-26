@@ -1,19 +1,23 @@
-import React from "react";
+import React, { ForwardedRef, LegacyRef, PropsWithChildren, ReactElement, ReactNode } from "react";
 
 import "./Input.scss";
 
-interface IInputProps {
+import ReactInputMask from "react-input-mask";
+
+interface IInputProps extends PropsWithChildren {
   type: string;
   autoComplete?: string;
   placeholder?: string;
   className?: string;
   isRequired?: boolean;
   labelText?: string;
+  mask?: string | (string | RegExp)[];
+
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input = React.forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
-  const { type, className, labelText, isRequired, ...otherProps } = props;
+  const { type, className, labelText, isRequired, mask, children, ...otherProps } = props;
 
   return (
     <label className="input-label">
@@ -25,7 +29,14 @@ const Input = React.forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
       ) : (
         false
       )}
-      <input ref={ref} className={`input ${className ? className : ""}`} {...otherProps} type={type} />
+      {mask ? (
+        <ReactInputMask className={`input ${className ? className : ""}`} {...otherProps} type={type} mask={mask}>
+          {/* @ts-ignore */}
+          {(maskProps) => <input ref={ref} {...maskProps} type={type} />}
+        </ReactInputMask>
+      ) : (
+        <input ref={ref} className={`input ${className ? className : ""}`} {...otherProps} type={type} />
+      )}
     </label>
   );
 });

@@ -23,7 +23,6 @@ interface IFormData {
 }
 
 const CallModal: React.FC<ICallModalProps> = () => {
-  const [phoneInputMask, setPhoneInputMask] = useState({ mask: `{+7 (000) 000-00-00}` });
   const { isCallModalVisible } = useAppSelector((state) => {
     return state.states;
   });
@@ -54,13 +53,9 @@ const CallModal: React.FC<ICallModalProps> = () => {
         <Input
           {...register("phone", {
             required: `Заполните обязательные поля!`,
-            maxLength: {
-              value: 12,
-              message: "Кол-во символов должно быть равно 12",
-            },
             minLength: {
-              value: 12,
-              message: "Кол-во символов должно быть равно 12",
+              value: 11,
+              message: "Заполните обязательные поля!",
             },
           })}
           autoComplete="off"
@@ -69,7 +64,9 @@ const CallModal: React.FC<ICallModalProps> = () => {
           type="text"
           labelText="Номер телефона"
           isRequired={true}
+          mask={"+7 (999) 999-99-99"}
         />
+
         <CheckBox
           {...register("checkBox", { required: "Поставьте все обязятельные флажки!" })}
           classNamesPrefix="call-modal">
@@ -78,6 +75,7 @@ const CallModal: React.FC<ICallModalProps> = () => {
         <Button color="blue" className="call-form__button">
           Перезвоните мне
         </Button>
+        {/* {JSON.stringify(formState.errors)} */}
       </form>
     </Modal>
   );
