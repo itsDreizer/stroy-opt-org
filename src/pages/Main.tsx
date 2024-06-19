@@ -20,7 +20,7 @@ const Main: React.FC<IMainProps> = () => {
     const condition = isCallModalVisible || isHeaderMenuVisible || (isCatalogVisible && windowWidth < 1000);
 
     document.body.style.overflow = condition ? "hidden" : "visible";
-  }, [isCallModalVisible, isHeaderMenuVisible]);
+  }, [isCallModalVisible, isHeaderMenuVisible, isCatalogVisible, windowWidth]);
 
   return (
     <div className="page-main">
